@@ -1,10 +1,24 @@
 from itertools import combinations
 
-# Input: Each shape is identified by a set of pairs of numbers indicating occupied cells. Note: The first point must be to the left and/or on top of the second point
+# Input: Each shape is identified by a set matchsticks. Each matchstick is in turn indicated by two points. Each point is then indicated by its coordinates. Note: The first point must be to the left and/or on top of the second point
+# This program can solve problems with non-directional units like coins (like in the third puzzle). It's just that the points of each "matchstick" have the same coordinates
+
+# The fish puzzle
 # Shape number one:
-first_shape = {((0,0),(1,0)), ((0,1),(1,1)), ((1,0),(1,1)), ((1,0),(2,0)), ((1,1),(1,2)), ((1,1),(2,1)), ((2,0),(2,1)), ((2,1),(2,2))}
+# first_shape = {((0,0),(1,0)), ((0,1),(1,1)), ((1,0),(1,1)), ((1,0),(2,0)), ((1,1),(1,2)), ((1,1),(2,1)), ((2,0),(2,1)), ((2,1),(2,2))}
 # Shape number two:
-second_shape = {((0,0),(0,1)), ((0,1),(0,2)), ((0,1),(1,1)), ((0,2),(1,2)), ((1,0),(1,1)), ((1,1),(1,2)), ((1,1),(2,1)), ((1,2),(2,2))}
+# second_shape = {((0,0),(0,1)), ((0,1),(0,2)), ((0,1),(1,1)), ((0,2),(1,2)), ((1,0),(1,1)), ((1,1),(1,2)), ((1,1),(2,1)), ((1,2),(2,2))}
+#------------------------------------------------------------
+# The triangle puzzle
+# Shape number one:
+# first_shape = {((0,3),(1,2)), ((0,3),(1,4)), ((1,2),(2,1)), ((1,2),(2,3)), ((1,4),(2,3)), ((1,4),(2,5)), ((2,1),(3,0)), ((2,1),(3,2)), ((2,3),(3,2)), ((2,3),(3,4)), ((2,5),(3,4)), ((2,5),(3,6))}
+# second_shape = {((0,0),(1,1)), ((0,2),(1,1)), ((0,2),(1,3)), ((0,4),(1,3)), ((0,4),(1,5)), ((1,1),(2,2)), ((1,3),(2,2)), ((1,3),(2,4)), ((2,2),(3,3)), ((2,4),(3,3))}
+#------------------------------------------------------------
+# The triangle puzzle (with coins)
+# Shape number one:
+first_shape = {((0,3),(0,3)), ((1,2),(1,2)), ((1,4),(1,4)), ((2,1),(2,1)), ((2,3),(2,3)), ((2,5),(2,5)), ((3,0),(3,0)), ((3,2),(3,2)), ((3,4),(3,4)), ((3,6),(3,6))}
+second_shape = {((0,0),(0,0)), ((0,2),(0,2)), ((0,4),(0,4)), ((0,6),(0,6)), ((1,1),(1,1)), ((1,3),(1,3)), ((1,5),(1,5)), ((2,2),(2,2)), ((2,4),(2,4)), ((3,3),(3,3))}
+
 
 # Compression algorithm: drag the shape to the left-most and top-most position for ease of comparison
 def compress(set_in):
